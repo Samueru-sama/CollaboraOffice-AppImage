@@ -10,25 +10,25 @@ echo "---------------------------------------------------------------"
 # pacman -Syu --noconfirm PACKAGESHERE
 
 pacman -Syu --noconfirm \
-	base-devel             \
-	cmake                  \
-	curl                   \
-	git                    \
-    wget                   \
+    base-devel             \
+    chromium               \
+    cmake                  \
+    cppunit                \
+    curl                   \
+    git                    \
     libcap                 \
     libcap-ng              \
     libpng                 \
-    poco                   \
-    cppunit                \
     nodejs                 \
     npm                    \
-    chromium               \
+    poco                   \
     python-lxml            \
+    python-polib           \
     qt6-base               \
-    qt6-webengine          \
+    qt6-tools              \
     qt6-webchannel         \
-    python-polib
-
+    qt6-webengine          \
+    wget                   
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano
