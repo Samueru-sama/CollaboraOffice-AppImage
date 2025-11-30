@@ -13,8 +13,7 @@ export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}
 export ICON="https://raw.githubusercontent.com/CollaboraOnline/online/refs/heads/distro/collabora/coda-$VERSION/windows/coda/Assets/logo.png"
 export OUTNAME=CODA-"$VERSION"-anylinux-"$ARCH".AppImage
 #export DESKTOP=PATH_OR_URL_TO_DESKTOP_ENTRY
-export DEPLOY_QT=1
-export PATH_MAPPING="$CODA_PATH/browser:\${SHARUN_DIR}/browser"
+#export DEPLOY_QT=1
 
 
 # Deploy dependencies

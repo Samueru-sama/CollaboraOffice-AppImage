@@ -2,6 +2,8 @@
 
 set -eu
 
+cd /tmp
+
 ARCH=$(uname -m)
 VERSION="25.04"
 CORE_PATH="$(pwd)/core"
