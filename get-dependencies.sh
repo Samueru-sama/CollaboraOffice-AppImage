@@ -4,7 +4,6 @@ set -eu
 
 ARCH=$(uname -m)
 VERSION="25.04"
-PREFIX="$(pwd)/AppDir/CollaboraOffice"
 CORE_PATH="$(pwd)/core"
 CODA_PATH="$(pwd)/CODA"
 
@@ -56,15 +55,13 @@ echo "Compiling Collabora Office for $VERSION..."
 echo "---------------------------------------------------------------"
 cd $CODA_PATH
 ./autogen.sh
-./configure --prefix="$PREFIX" --enable-qtapp --with-lo-path="$CORE_PATH/instdir" --with-lokit-path="$CORE_PATH/include" --enable-debug CXXFLAGS="-O2 -g -fPIC"
+./configure --enable-qtapp --with-lo-path="$CORE_PATH/instdir" --with-lokit-path="$CORE_PATH/include" --enable-debug CXXFLAGS="-O2 -g -fPIC"
 make -j$(nproc)
 make install
 
 echo "We should get a coda-qt now. Let's search for it:"
 echo "---------------------------------------------------------------"
 #find . -name "coda-qt"
-#whereis coda-qt
-find $PREFIX -name "coda-qt"
+whereis coda-qt
 
 echo "$VERSION"> ~/version
-echo "AppDir/CollaboraOffice/bin/coda-qt" > ~/AppLocation

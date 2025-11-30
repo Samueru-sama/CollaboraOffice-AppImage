@@ -4,7 +4,8 @@ set -eu
 
 ARCH=$(uname -m)
 VERSION="$(cat ~/version)"
-APP_LOCATION="$(cat ~/AppLocation)"
+APP_LOCATION="$(whereis coda-qt)"
+
 export ARCH VERSION
 export OUTPATH=./dist
 export ADD_HOOKS="self-updater.bg.hook"
@@ -18,6 +19,11 @@ export DEPLOY_QT=1
 quick-sharun $APP_LOCATION
 
 # Additional changes can be done in between here
+echo "Copying over certain required files:"
+echo "---------------------------------------------------------------"
+mkdir -p AppDir/share/{coda-qt,coolwsd}
+cp -r /usr/local/share/coda-qt AppDir/share/coda-qt
+cp -r /usr/local/share/coolwsd AppDir/share/coolwsd
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
