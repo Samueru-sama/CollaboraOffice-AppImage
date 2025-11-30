@@ -19,5 +19,8 @@ quick-sharun /usr/bin/coda-qt \
     /usr/share/coda-qt \
     /usr/share/coolwsd
 
+# 🤨
+cp /usr/bin/coda-qt ./AppDir/shared/bin
+
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
