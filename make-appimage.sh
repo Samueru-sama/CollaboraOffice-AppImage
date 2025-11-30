@@ -14,8 +14,7 @@ export ICON="https://raw.githubusercontent.com/CollaboraOnline/online/refs/heads
 export OUTNAME=CODA-"$VERSION"-anylinux-"$ARCH".AppImage
 export ANYLINUX_LIB=1
 #export DESKTOP=PATH_OR_URL_TO_DESKTOP_ENTRY
-#export DEPLOY_QT=1
-
+export OPTIMIZE_LAUNCH=1
 
 # Deploy dependencies
 quick-sharun /usr/bin/coda-qt \
