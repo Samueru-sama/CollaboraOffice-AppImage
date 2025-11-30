@@ -4,6 +4,7 @@ set -eu
 
 ARCH=$(uname -m)
 VERSION="$(cat ~/version)"
+CODA_PATH="$(cat ~/CODA_PATH)"
 
 export ARCH VERSION
 export OUTPATH=./dist
@@ -13,11 +14,15 @@ export ICON="https://raw.githubusercontent.com/CollaboraOnline/online/refs/heads
 export OUTNAME=CODA-"$VERSION"-anylinux-"$ARCH".AppImage
 #export DESKTOP=PATH_OR_URL_TO_DESKTOP_ENTRY
 export DEPLOY_QT=1
+export PATH_MAPPING="$CODA_PATH/browser:\${SHARUN_DIR}/browser"
+
 
 # Deploy dependencies
 quick-sharun /usr/bin/coda-qt \
     /usr/share/coda-qt \
-    /usr/share/coolwsd
+    "$CODA_PATH"/browser
+
+cp -r "$CODA_PATH"/browser ./AppDir
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage

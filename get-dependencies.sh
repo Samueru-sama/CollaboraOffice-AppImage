@@ -66,3 +66,4 @@ echo "---------------------------------------------------------------"
 whereis coda-qt
 
 echo "$VERSION"> ~/version
+echo "$CODA_PATH" > ~/CODA_PATH
