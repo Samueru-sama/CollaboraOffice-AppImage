@@ -16,14 +16,9 @@ export OUTNAME=CODA-"$VERSION"-anylinux-"$ARCH".AppImage
 export DEPLOY_QT=1
 
 # Deploy dependencies
-quick-sharun $APP_LOCATION
-
-# Additional changes can be done in between here
-echo "Copying over certain required files:"
-echo "---------------------------------------------------------------"
-mkdir -p AppDir/share/{coda-qt,coolwsd}
-cp -r /usr/local/share/coda-qt AppDir/share/coda-qt
-cp -r /usr/local/share/coolwsd AppDir/share/coolwsd
+quick-sharun $APP_LOCATION \
+    /usr/share/coda-qt \
+    /usr/share/coolwsd
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage

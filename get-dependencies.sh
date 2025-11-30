@@ -6,6 +6,7 @@ ARCH=$(uname -m)
 VERSION="25.04"
 CORE_PATH="$(pwd)/core"
 CODA_PATH="$(pwd)/CODA"
+PREFIX="/usr"
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
@@ -55,7 +56,7 @@ echo "Compiling Collabora Office for $VERSION..."
 echo "---------------------------------------------------------------"
 cd $CODA_PATH
 ./autogen.sh
-./configure --enable-qtapp --with-lo-path="$CORE_PATH/instdir" --with-lokit-path="$CORE_PATH/include" --enable-debug CXXFLAGS="-O2 -g -fPIC"
+./configure --prefix="$PREFIX" --enable-qtapp --with-lo-path="$CORE_PATH/instdir" --with-lokit-path="$CORE_PATH/include" --enable-debug CXXFLAGS="-O2 -g -fPIC"
 make -j$(nproc)
 make install
 
