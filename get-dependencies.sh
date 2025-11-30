@@ -41,8 +41,17 @@ get-debloated-pkgs --add-common --prefer-nano
 echo "Getting Collabora Office source code for $VERSION..."
 echo "---------------------------------------------------------------"
 git clone --depth=1 https://github.com/CollaboraOnline/online -b distro/collabora/coda-"$VERSION" CODA
-git clone --depth=1 https://github.com/LibreOffice/core -b distro/collabora/coda-"$VERSION" core
-cd CODA
+
+echo "Getting Collabora Office Asset Pack for $VERSION..."
+echo "---------------------------------------------------------------"
+mkdir -p core
+cd core
+wget https://github.com/CollaboraOnline/online/releases/download/for-code-assets/core-co-$VERSION-assets.tar.gz
+tar xvf core-co-$VERSION-assets.tar.gz
+
+echo "Compiling Collabora Office for $VERSION..."
+echo "---------------------------------------------------------------"
+cd ../CODA
 ./autogen.sh
 ./configure --enable-qtapp --with-lo-path=../core/instdir --with-lokit-path=../core/include --enable-debug CXXFLAGS="-O2 -g -fPIC"
 make -j$(nproc)
